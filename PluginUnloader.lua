@@ -4,7 +4,6 @@ local imgui = require 'ImGui'
 local shouldRun = false
 local isRunning = false
 
-
 local excludedPlugins = {
     "mq2chatwnd",
     "mq2mmobugs"
@@ -47,7 +46,6 @@ local function getEnabledPlugins()
     return plugins
 end
 
-
 local function unloadPlugins(plugins)
     for _, plugin in ipairs(plugins) do
         mq.cmdf("/plugin %s unload", plugin)
@@ -69,12 +67,10 @@ local function pluginUnloaderGui()
     end
 end
 
-
 local openGUI = true
 ImGui.Register('GUIPluginUnload', function()
     openGUI = pluginUnloaderGui(openGUI)
 end)
-
 
 while true do
     if shouldRun and not isRunning then
